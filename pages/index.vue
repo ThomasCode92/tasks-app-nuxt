@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const { data: tasks } = await useFetch("/api/tasks");
+</script>
+
 <template>
-  <h1>Tasks App</h1>
+  <div>
+    <article v-for="task in tasks" :key="task.id">
+      {{ task.title }}
+    </article>
+  </div>
 </template>
