@@ -1,10 +1,16 @@
 <template>
   <nav>
     <ul>
-      <li><strong>Tasks App</strong></li>
+      <li>
+        <NuxtLink to="/" class="secondary">
+          <strong>Tasks App </strong>
+        </NuxtLink>
+      </li>
     </ul>
     <ul>
-      <li><a href="#">Create Task</a></li>
+      <li>
+        <NuxtLink :to="{ name: 'create' }">Create Task</NuxtLink>
+      </li>
     </ul>
   </nav>
 </template>
