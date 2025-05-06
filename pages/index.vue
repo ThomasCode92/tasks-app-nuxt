@@ -1,11 +1,16 @@
 <script setup lang="ts">
-const { data: tasks } = await useFetch("/api/tasks");
+const { data: tasks, status } = await useFetch("/api/tasks", {
+  lazy: true,
+});
 </script>
 
 <template>
   <div>
-    <article v-for="task in tasks" :key="task.id">
-      {{ task.title }}
-    </article>
+    <article v-if="status === 'pending'" aria-busy="true" />
+    <div v-else>
+      <article v-for="task in tasks" :key="task.id">
+        {{ task.title }}
+      </article>
+    </div>
   </div>
 </template>
