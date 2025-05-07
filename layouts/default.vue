@@ -8,6 +8,11 @@
 </template>
 
 <style>
+.button-container {
+  display: flex;
+  justify-content: end;
+}
+
 .error {
   color: red;
 }
