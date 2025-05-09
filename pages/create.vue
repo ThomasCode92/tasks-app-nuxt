@@ -19,7 +19,8 @@ async function onSubmit() {
       method: "POST",
       body: { title: taskName.value },
     });
-    console.log(result);
+
+    navigateTo({ name: "tasks-id", params: { id: result.task.id } });
   } catch (e) {
     const error = e as FetchError;
     errorMessage.value = error.statusMessage ?? "Unknown error occurred";
