@@ -15,6 +15,14 @@ const {
     <div v-else>
       <article v-for="task in tasks" :key="task.id">
         {{ task.title }}
+        <div class="button-container">
+          <NuxtLink
+            role="button"
+            :to="{ name: 'tasks-id', params: { id: task.id } }"
+          >
+            View
+          </NuxtLink>
+        </div>
       </article>
     </div>
   </div>

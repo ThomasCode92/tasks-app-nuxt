@@ -9,6 +9,8 @@ const ParamsSchema = z.object({
 });
 
 export default defineEventHandler(async event => {
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
   const result = await getValidatedRouterParams(event, ParamsSchema.safeParse);
 
   if (!result.success) {
